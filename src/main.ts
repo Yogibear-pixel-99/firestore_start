@@ -10,7 +10,7 @@ import { firebaseConfig } from './environments/environment';
 bootstrapApplication(AppComponent, {
   ...appConfig,
   providers: [
-    ...appConfig.providers, // <== behalte bestehende Provider
+    ...appConfig.providers,
     provideFirebaseApp(() => initializeApp(firebaseConfig)),
     provideFirestore(() => getFirestore())
   ]

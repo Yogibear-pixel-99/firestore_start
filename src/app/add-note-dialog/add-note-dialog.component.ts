@@ -1,6 +1,6 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { Note } from '../interfaces/note.interface';
-import { NoteListService } from '../../app/note-list.service'
+import { NoteListService } from '../firebase-services/note-list.service'
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
