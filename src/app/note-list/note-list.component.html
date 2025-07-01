@@ -133,9 +133,29 @@
         </div>
     </div>
     <div>
+
+        <!-- <ul>
+    @for (item of this.getList(); track item) {
+      <li>
+        {{ item['title'] }}
+      </li>
+    }
+  </ul> -->
         
-        @for (note of noteList; track note) {
+    @if (status !== "trash") {
+        @for (note of this.getList(); track note) {
             <app-note [note]="note"></app-note>
           }
+        } @else {
+            @for (trash of this.getTrash(); track trash) {
+                <app-note [note]="trash"></app-note>
+            }
+        }
+<!-- 
+        @for (note of this.getList(); track note) {
+            <app-note [note]="note"></app-note>
+          } -->
+
+
     </div>
 </div>
