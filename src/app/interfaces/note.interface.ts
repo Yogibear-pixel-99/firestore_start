@@ -1,6 +1,6 @@
 export interface Note {
-    id: string;
-    type: "note" | "trash";
+    id?: string;
+    type: "notes" | "trash";
     title:string;
     content:string;
     marked: boolean;

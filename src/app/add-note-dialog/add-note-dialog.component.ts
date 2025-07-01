@@ -26,7 +26,7 @@ export class AddNoteDialogComponent {
   addNote(){
     let note: Note = {
     id: "",
-    type: "note",
+    type: "notes",
     title:this.title,
     content:this.description,
     marked: false

@@ -141,7 +141,12 @@
       </li>
     }
   </ul> -->
-        
+
+  <!-- @if (favFilter === "fav") {
+    @for (note of this.getMarked(); track note) {
+            <app-note [note]="note"></app-note>
+          }
+  } @else {        
     @if (status !== "trash") {
         @for (note of this.getList(); track note) {
             <app-note [note]="note"></app-note>
@@ -151,10 +156,11 @@
                 <app-note [note]="trash"></app-note>
             }
         }
-<!-- 
+    } -->
+
         @for (note of this.getList(); track note) {
             <app-note [note]="note"></app-note>
-          } -->
+          }
 
 
     </div>
