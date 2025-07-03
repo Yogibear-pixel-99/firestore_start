@@ -36,10 +36,8 @@ export class NoteListService {
   }
 
   subNoteList() {
-    const q = query(
-      this.getNotesRef(),
-    );
-    return onSnapshot(q, (list) => {
+    let ref = collection(this.firestore, "notes/7l7RShD3WlOU5EFYYrZk/notesExtra");
+    return onSnapshot(ref, (list) => {
       this.normalNotes = [];
       list.forEach((element) => {
         this.normalNotes.push(this.setNoteObj(element.data(), element.id));
@@ -58,6 +56,32 @@ export class NoteListService {
   });
     });
   }
+
+  // subNoteList() {
+  //   const q = query(
+  //     this.getNotesRef(),
+  //   );
+  //   return onSnapshot(q, (list) => {
+  //     this.normalNotes = [];
+  //     list.forEach((element) => {
+  //       this.normalNotes.push(this.setNoteObj(element.data(), element.id));
+  //       console.log(this.setNoteObj(element.data(), element.id));
+  //     });
+  //       list.docChanges().forEach((change) => {
+  //   if (change.type === "added") {
+  //       console.log("New note: ", change.doc.data());
+  //   }
+  //   if (change.type === "modified") {
+  //       console.log("Modified note: ", change.doc.data());
+  //   }
+  //   if (change.type === "removed") {
+  //       console.log("Removed note: ", change.doc.data());
+  //   }
+  // });
+  //   });
+  // }
+
+
 
   subMarkedList() {
     const q = query(this.getNotesRef(), where("marked", "==", true));
@@ -79,7 +103,7 @@ export class NoteListService {
     });
   }
 
-  ngonDestroy() {
+  ngOnDestroy() {
     this.unsubNotes();
     this.unsubTrash();
     this.unsubMarked();
